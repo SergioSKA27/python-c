@@ -55,7 +55,7 @@ La representación impresa, en la ventana de resultados, omite las comillas.
 </div>
 '''
 st.markdown(txt0, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         print(3.2)
         print("Hello, World!")
@@ -114,7 +114,7 @@ Los primeros tres cálculos ocurren, pero sus resultados no se imprimen.
 
 st.markdown(txt1, unsafe_allow_html=True)
 
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         print(20 + 32)
         print(5 ** 2)
@@ -134,7 +134,7 @@ ejemplo, 5:red[//]2 es 2).
 '''
 st.markdown(txt2, unsafe_allow_html=True)
 
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         print(9 / 5)
         print(5 / 9)
@@ -155,7 +155,7 @@ pero aún produce un resultado de coma flotante. Así 7.0 // 3.0 es 2.0.
 </div>
 '''
 st.markdown(txt3, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         print(7.0 / 3.0)
         print(7.0 // 3.0)
@@ -174,7 +174,7 @@ En Python, el operador de módulo es un signo de porcentaje (:red[%]). La sintax
 </div>
 '''
 st.markdown(txt4, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         print(7 // 3)    # This is the integer division operator
         print(7 % 3)     # This is the remainder or modulus operator
@@ -250,7 +250,7 @@ función devuelve un valor calculado.
 </div>
 '''
 st.markdown(txt4, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         def square(x):
             return x * x
@@ -299,3 +299,276 @@ st.markdown(
     f'<div style="text-align: center;"><img src="data:image/gif;base64,{data_url1}" alt="sqfunc"></div>',
     unsafe_allow_html=True,
 )
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(square(3))
+        square(5)
+        print(sub(6, 4))
+        print(sub(5, 9))
+    ''')
+if st.button('Ejecutar',key='button25'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(square(3))
+        st.write(square(5))
+        st.write(sub(6, 4))
+        st.write(sub(5, 9))
+
+txt8 = r'''
+<div style="text-align: justify;">
+Tenga en cuenta que cuando una función toma más de un parámetro de entrada, las entradas están separadas por una coma.
+También tenga en cuenta que el orden de las entradas es importante. El valor anterior a la coma se trata como la primera
+entrada, el valor posterior como la segunda entrada.
+
+Nuevamente, recuerde que cuando Python realiza cálculos, los resultados solo se muestran en la ventana de salida si hay
+una declaración de impresión que dice que debe hacerlo. En la ventana de código activo anterior, el cuadrado (5) produce
+el valor 25, pero nunca podemos verlo en la ventana de salida, porque no se imprime.
+</div>
+
+# 2.4.1. Llamadas a funciones como parte de expresiones complejas
+
+<div style="text-align: justify;">
+En cualquier parte de una expresión en la que pueda escribir un literal como un número, también puede escribir una
+invocación de función que produzca un número.
+
+Por ejemplo:
+</div>
+'''
+
+st.markdown(txt8, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(square(3) + 2)
+        print(sub(square(3), square(1+1)))
+    ''')
+if st.button('Ejecutar',key='button26'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(square(3) + 2)
+        st.write(sub(square(3), square(1+1)))
+
+txt9 = r'''
+<div style="text-align: justify;">
+Echemos un vistazo a cómo se desarrolla esa última ejecución.
+Tenga en cuenta que siempre tenemos que resolver primero la expresión dentro de los paréntesis más internos, para
+determinar qué entrada proporcionar al llamar a las funciones.
+</div>
+
+    print(sub(square(3), square(1+1)))
+
+    print(sub(9, square(1+1)))
+
+    print(sub(9, square(2)))
+
+    print(sub(9, 4))
+
+    print(5)
+
+# 2.4.2. Las funciones son objetos; los paréntesis invocan funciones
+<div style="text-align: justify;">
+¿Recuerdas que antes mencionamos que algunos tipos de objetos de Python no tienen una buena representación impresa?
+Las funciones son en sí mismas solo objetos. Si le dice a Python que imprima el objeto de función, en lugar de imprimir
+los resultados de invocar el objeto de función, obtendrá una de esas representaciones impresas no tan agradables.
+
+Simplemente escribir el nombre de la función se refiere a la función como un objeto. Escribir el nombre de la función
+seguido de paréntesis () invoca la función.
+
+'''
+st.markdown(txt9, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(square)
+        print(square(3))
+    ''')
+if st.button('Ejecutar',key='button27'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(square)
+        st.write(square(3))
+
+txt10 = r'''
+# 2.5. Tipos de datos
+
+Si no está seguro de en qué clase (tipo de datos) cae un valor, Python tiene una función llamada tipo que puede decírselo.
+'''
+
+st.markdown(txt10, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(type("Hello, World!"))
+        print(type(17))
+        print("Hello, World")
+        print(type(3.2))
+
+    ''')
+if st.button('Ejecutar',key='button28'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(type("Hello, World!"))
+        st.write(type(17))
+        st.write("Hello, World")
+        st.write(type(3.2))
+txt11 = r'''
+¿Qué pasa con valores como "17" y "3.2"? Parecen números, pero están entre comillas como cadenas.
+'''
+
+st.markdown(txt11, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(type("17"))
+        print(type("3.2"))
+
+
+    ''')
+if st.button('Ejecutar',key='button29'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(type("17"))
+        st.write(type("3.2"))
+
+
+txt12 = r'''
+¡Son cadenas!
+
+Las cadenas en Python se pueden encerrar entre comillas simples (') o comillas dobles ("), o tres de cada una (\'\'\' o \"\"\")
+
+<div style="textalign: justify;">
+Las cadenas entre comillas dobles pueden contener comillas simples dentro de ellas, como en "La barba de Bruce", y las
+cadenas entre comillas simples pueden tener comillas dobles dentro de ellas, como en "Los caballeros que dicen "¡Ni!"".
+Las cadenas encerradas con tres apariciones de cualquiera de los símbolos de comillas se denominan cadenas entre
+comillas triples. Pueden contener comillas simples o dobles:
+'''
+st.markdown(txt12, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(\'\'\'"Oh no", she exclaimed, "Ben's bike is broken!"\'\'\')
+
+
+    ''')
+if st.button('Ejecutar',key='button210'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write('''"Oh no", she exclaimed, "Ben's bike is broken!"''')
+
+txt13 = r'''
+Las cadenas entre comillas triples pueden incluso abarcar varias líneas:
+'''
+st.markdown(txt13, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print("\"\"This message will span
+        several lines
+        of the text."\"\")
+    ''')
+if st.button('Ejecutar',key='button211'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write("""This message will span\n
+                    several lines\n
+                    of the text.""")
+
+txt14 = r'''
+<div style="text-align: justify;">
+A Python no le importa si usa comillas simples o dobles o las comillas de tres de un tipo para rodear sus cadenas.
+Una vez que ha analizado el texto de su programa o comando, la forma en que almacena el valor es idéntica en todos
+los casos, y las comillas que lo rodean no forman parte del valor.
+</div>
+
+# 2.6. Funciones de conversión de tipos
+
+<div style="text-align: justify;">
+A veces es necesario convertir valores de un tipo a otro. Python proporciona algunas funciones simples que nos
+permitirán hacer eso. Las funciones int, float y str (intentarán) convertir sus argumentos en tipos int, float y str
+respectivamente. Llamamos a estas funciones de conversión de tipos.
+
+La función int puede tomar un número de punto flotante o una cadena y convertirlo en un int. Para los números de coma
+flotante, descarta la parte decimal del número, un proceso que llamamos truncamiento hacia cero en la recta numérica.
+Veamos esto en acción:
+</div>
+'''
+st.markdown(txt14, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(3.14, int(3.14))
+        print(3.9999, int(3.9999))       # This doesn't round to the closest int!
+        print(3.0, int(3.0))
+        print(-3.999, int(-3.999))        # Note that the result is closer to zero
+
+        print("2345", int("2345"))        # parse a string to produce an int
+        print(17, int(17))                # int even works on integers
+        print(int("23bottles"))
+
+    ''')
+if st.button('Ejecutar',key='button212'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(3.14, int(3.14))
+        st.write(3.9999, int(3.9999))
+        st.write(3.0, int(3.0))
+        st.write(-3.999, int(-3.999))
+
+        st.write("2345", int("2345"))
+        st.write(17, int(17))
+        try:
+            st.write(int("23bottles"))
+        except Exception as e:
+            st.error(str(e))
+
+txt15 = r'''
+<div style="text-align: justify;">
+El último caso muestra que una cadena tiene que ser un número sintácticamente legal, de lo contrario obtendrá uno de
+esos molestos errores de tiempo de ejecución. Modifique el ejemplo eliminando las botellas y vuelva a ejecutar el
+programa. Deberías ver el número entero 23.
+
+El convertidor de tipos float puede convertir un entero, un float o una cadena legal sintácticamente en un float.
+</div>
+'''
+
+st.markdown(txt15, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(float("123.45"))
+        print(type(float("123.45")))
+
+    ''')
+if st.button('Ejecutar',key='button213'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(float("123.45"))
+        st.write(type(float("123.45")))
+txt15 = r'''
+<div style="text-align: justify;">
+El convertidor de tipos str convierte su argumento en una cadena. Recuerde que cuando imprimimos una cadena,
+las comillas se eliminan en la ventana de salida. Sin embargo, si imprimimos el tipo, podemos ver que definitivamente es str.
+</div>
+'''
+
+st.markdown(txt15, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        print(str(17))
+        print(str(123.45))
+        print(type(str(123.45)))
+
+
+    ''')
+if st.button('Ejecutar',key='button214'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(str(17))
+        st.write(str(123.45))
+        st.write(type(str(123.45)))
+
+txt16= r'''
+<div style="text-align=justify;">
+Una operación común en la que es posible que deba realizar una conversión de tipo es cuando está concatenando varias
+cadenas pero desea incluir un valor numérico como parte de la cadena final. Debido a que no podemos concatenar una
+cadena con un número entero o de coma flotante, a menudo tendremos que convertir números en cadenas antes de concatenarlos.
+</div>
+'''
+st.markdown(txt16, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python",expanded=True):
+    st.code('''
+        value = 50 + 5
+        print('The value is ' + value)   # Wrong
+        print('The value is ' + str(value))   # Good
+
+    ''')
+if st.button('Ejecutar',key='button215'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        value = 50 + 5
+        try:
+            st.write('The value is' + value)   # Wrong
+        except Exception as e:
+            st.error(str(e))
+        st.write('The value is ' + str(value))   # Good

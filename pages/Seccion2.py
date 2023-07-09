@@ -126,9 +126,11 @@ if st.button('Ejecutar',key='button21'):
         st.write(5 ** 2)
         st.write((5 + 9) * (15 - 7))
 txt2 = r'''
+<div style="text-align: justify;">
 En Python 3, que usaremos, el operador de división :red[/] produce un resultado de coma flotante (incluso si el resultado es
 un número entero; 4:red[/]2 es 2.0). Si desea una división truncada, que ignora el resto, puede usar el operador :red[//] (por
 ejemplo, 5:red[//]2 es 2).
+</div>
 '''
 st.markdown(txt2, unsafe_allow_html=True)
 
@@ -145,11 +147,12 @@ if st.button('Ejecutar',key='button22'):
         st.write(9 // 5)
 
 txt3 = r'''
+<div style="text-align: justify;">
 Preste especial atención a los ejemplos anteriores. Tenga en cuenta que 9//5 trunca en lugar de redondear,
 por lo que produce el valor 1 en lugar de 2.
 El operador de división truncada, //, también funciona en números de coma flotante. Se trunca al entero más cercano,
 pero aún produce un resultado de coma flotante. Así 7.0 // 3.0 es 2.0.
-
+</div>
 '''
 st.markdown(txt3, unsafe_allow_html=True)
 with st.expander(label="Implementación en Python"):
@@ -162,3 +165,137 @@ if st.button('Ejecutar',key='button23'):
     with st.expander(label=":blue[Output: ]",expanded=True):
         st.write(7.0 / 3.0)
         st.write(7.0 // 3.0)
+
+txt4 = r'''
+<div style="text-align: justify;">
+El operador de módulo, a veces también llamado operador de resto u operador de resto entero, funciona con números
+enteros (y expresiones enteras) y produce el resto cuando el primer operando se divide por el segundo.
+En Python, el operador de módulo es un signo de porcentaje (:red[%]). La sintaxis es la misma que para otros operadores.
+</div>
+'''
+st.markdown(txt4, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python"):
+    st.code('''
+        print(7 // 3)    # This is the integer division operator
+        print(7 % 3)     # This is the remainder or modulus operator
+    ''')
+if st.button('Ejecutar',key='button24'):
+    with st.expander(label=":blue[Output: ]",expanded=True):
+        st.write(7 // 3)
+        st.write(7 % 3)
+
+txt5 = r'''
+<div style="text-align: justify">
+En el ejemplo anterior, 7 dividido por 3 es 2 cuando usamos la división de enteros y hay un resto de 1.
+
+El operador de módulo resulta sorprendentemente útil. Por ejemplo, puede verificar si un número es divisible por otro:
+si x % y es cero, entonces x es divisible por y. Además, puede extraer el dígito o dígitos más a la derecha de un
+número. Por ejemplo, x % 10 produce el dígito más a la derecha de x (en base 10). De manera similar, x % 100 produce
+los dos últimos dígitos.
+
+
+</div>
+
+# 2.4. Llamadas de función
+
+<div style="text-align
+El intérprete de Python puede calcular nuevos valores con llamadas a funciones. Estás familiarizado con la idea de las
+funciones del álgebra de la escuela secundaria. Allí podría definir una función f especificando cómo transforma una
+entrada en una salida, f(x) = 3x + 2. Luego, podría escribir f(5) y esperar obtener el valor 17.
+
+Python adopta una sintaxis similar para invocar funciones. Si hay una función con nombre foo que toma una sola entrada,
+podemos invocar foo en el valor 5 escribiendo foo(5).
+
+Hay muchas funciones integradas disponibles en Python. Verá algunos en este capítulo y en los siguientes.
+Las funciones son como fábricas que toman algún material, realizan alguna operación y luego envían el objeto resultante.
+Icono que representa una función. Parece similar a una fábrica con tres lugares en la parte superior para que entren las
+entradas y un lugar en la parte inferior para que salga el valor de salida/retorno.
+
+En este caso, nos referimos a los materiales como argumentos o entradas y el objeto resultante se denomina salida o
+valor de retorno. Este proceso de recibir información, hacer algo y luego devolver la salida
+se muestra en el siguiente gif.
+</div>
+'''
+st.markdown(txt5, unsafe_allow_html=True)
+file0_ = open("pages/function_calls.gif", "rb")
+
+
+
+contents0 = file0_.read()
+data_url0 = base64.b64encode(contents0).decode("utf-8")
+file0_.close()
+
+st.markdown(
+    f'<div style="text-align: center;"><img src="data:image/gif;base64,{data_url0}" alt="func"></div>',
+    unsafe_allow_html=True,
+)
+
+with st.expander('Nota:'):
+    st.markdown(unsafe_allow_html=True,body=r'''
+    <div style="text-align: justify;">
+    No confunda el "valor de salida" de una función con la ventana de salida. La salida de una función es un valor de
+    Python y nunca podemos ver realmente la representación interna de un valor. Pero podemos hacer dibujos que nos
+    ayuden a imaginar qué valores son, o podemos imprimirlos para ver una representación externa en la
+    ventana de resultados.
+
+    Para confundir aún más las cosas, la impresión es en realidad una función. Todas las funciones producen valores
+    de salida. Solo la función de impresión hace que las cosas aparezcan en la ventana de salida.
+    </div>
+    ''')
+txt6 = r'''
+<div style="text-align: justify;">
+También es posible que los programadores definan nuevas funciones en sus programas. Aprenderá cómo hacerlo más adelante
+en el curso. Por ahora, solo necesita aprender a invocar o llamar a una función y comprender que la ejecución de la
+función devuelve un valor calculado.
+</div>
+'''
+st.markdown(txt4, unsafe_allow_html=True)
+with st.expander(label="Implementación en Python"):
+    st.code('''
+        def square(x):
+            return x * x
+
+        def sub(x, y):
+            return x - y
+    ''')
+def square(x):
+    """
+    The function "square" takes a number as input and returns the square of that number.
+
+    :param x: The parameter "x" is a number that will be squared
+    :return: The square of the input number.
+    """
+    return x * x
+
+def sub(x, y):
+    """
+    The function sub(x, y) subtracts y from x and returns the result.
+
+    :param x: The first parameter, x, is a number that represents the minuend in the subtraction operation
+    :param y: The parameter "y" is the second number that will be subtracted from the first number "x"
+    :return: the result of subtracting y from x.
+    """
+    return x - y
+
+txt7 = r'''
+<div style="text-align: justify;">
+Hemos definido dos funciones arriba. La  función square toma un solo parámetro de entrada y devuelve esa entrada
+multiplicada por sí misma. La función sub toma dos parámetros de entrada y devuelve el resultado de restar el segundo
+del primero. Obviamente, estas funciones no son especialmente útiles, ya que tenemos disponibles los operadores
+:red[*] y :red[-].
+Pero ilustran cómo funcionan las funciones. La siguiente imagen ilustra cómo funciona la función square.
+</div>
+'''
+st.markdown(txt7, unsafe_allow_html=True)
+file1_ = open("pages/square_function.gif", "rb")
+
+
+
+contents1 = file1_.read()
+data_url1 = base64.b64encode(contents1).decode("utf-8")
+file1_.close()
+
+st.markdown(
+    f'<div style="text-align: center;"><img src="data:image/gif;base64,{data_url1}" alt="sqfunc"></div>',
+    unsafe_allow_html=True,
+)

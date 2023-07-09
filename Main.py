@@ -6,7 +6,17 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
-
+st.set_page_config(
+    page_title="Python",
+    page_icon=":snake:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
 
 r"""
 Indice:

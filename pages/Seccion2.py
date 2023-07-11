@@ -128,8 +128,8 @@ if st.button('Ejecutar',key='button21'):
 txt2 = r'''
 <div style="text-align: justify;">
 En Python 3, que usaremos, el operador de división :red[/] produce un resultado de coma flotante (incluso si el resultado es
-un número entero; 4:red[/]2 es 2.0). Si desea una división truncada, que ignora el resto, puede usar el operador :red[//] (por
-ejemplo, 5:red[//]2 es 2).
+un número entero; 4 :red[/] 2 es 2.0). Si desea una división truncada, que ignora el resto, puede usar el operador :red[//] (por
+ejemplo, 5 :red[//] 2 es 2).
 </div>
 '''
 st.markdown(txt2, unsafe_allow_html=True)
@@ -572,3 +572,68 @@ if st.button('Ejecutar',key='button215'):
         except Exception as e:
             st.error(str(e))
         st.write('The value is ' + str(value))   # Good
+
+
+txt17 =r'''
+# 2.7. Variables
+
+
+<div style=text-align: justify;">
+Una de las características más poderosas de un lenguaje de programación es la capacidad de manipular variables.
+Una variable es un nombre que hace referencia a un valor.
+
+Las sentencias de asignación crean nuevas variables y también les dan valores a los que referirse.
+
+    mensaje = "What's up, Doc?"
+
+    n = 17
+
+    pi = 3.14159
+
+Este ejemplo hace tres asignaciones. El primero asigna el valor de cadena "¿Qué pasa, Doc?" a una nueva variable llamada
+mensaje. El segundo asigna el entero 17 a n, y el tercero asigna el número de punto flotante 3.14159 a una variable
+llamada pi.
+
+El token de asignación, :red[=], no debe confundirse con la igualdad (veremos más adelante que la igualdad usa el token :red[==]).
+La declaración de asignación vincula un nombre, en el lado izquierdo del operador, con un valor, en el lado derecho.
+Es por eso que obtendrá un error si ingresa:
+
+    17 = n
+</div>
+'''
+st.markdown(txt17, unsafe_allow_html=True)
+
+
+with st.expander('Tip:'):
+    st.markdown(unsafe_allow_html=True,body=r'''
+    <div style="text-align: justify;">
+    Al leer o escribir código, dígase a sí mismo "a n se le asigna 17" o "n obtiene el valor 17" o "n es
+    una referencia al objeto 17" o "n se refiere al objeto 17". No digas "n es igual a 17".
+    </div>
+    ''')
+
+txt18 = r'''
+<div style="text-align: justify;">
+Una forma común de representar variables en papel es escribir el nombre con una flecha que apunta al valor de la
+variable. Este tipo de figura, conocida como diagrama de referencia, a menudo se denomina instantánea de estado porque
+muestra en qué estado se encuentra cada una de las variables en un instante particular. (Piense en ello como el estado
+mental de la variable). Este diagrama muestra el resultado de ejecutar las declaraciones
+de asignación que se muestran arriba.
+</div>
+'''
+
+st.markdown(unsafe_allow_html=True, body=txt18)
+
+file2_ = open("pages/refdiagram1.png", "rb")
+
+
+
+contents2 = file2_.read()
+data_url2 = base64.b64encode(contents2).decode("utf-8")
+file2_.close()
+
+st.markdown(
+    f'<div style="text-align: center;"><img src="data:image/gif;base64,{data_url2}" alt="diag1"></div>',
+    unsafe_allow_html=True,
+)
+

@@ -66,7 +66,7 @@ el área de un círculo:
 '''
 st.markdown(txt0, unsafe_allow_html=True)
 
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
 
     st.code(
     '''
@@ -191,7 +191,7 @@ st.markdown(txt3, unsafe_allow_html=True)
 
 
 
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
     for character in "Cool string":
         print(character)
@@ -219,7 +219,7 @@ pero no sabe cuánto tiempo les llevará terminar con su código.
 '''
 
 st.markdown(txt4, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
     grocery_item = ""
     while grocery_item != "done":
@@ -253,7 +253,7 @@ Vea cómo agregar condicionales a nuestro código puede cambiar lo que podemos e
 
 
 st.markdown(txt5, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         grocery_item = ""
         grocery_list = []
@@ -392,7 +392,7 @@ Aquí está el ejemplo en una ventana de código activo, donde puede ejecutarlo
 </div>
 '''
 st.markdown(txt7, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         print("¡Hola Mundo!")
     ''')
@@ -414,7 +414,7 @@ Hello, World!.
 </div>
 '''
 st.markdown(txt8, unsafe_allow_html=True)
-with st.expander(label="Implementación en Python"):
+with st.expander(label="Implementación en Python",expanded=True):
     st.code('''
         #---------------------------------------------------
         # This demo program shows off how elegant Python is!

@@ -436,5 +436,10 @@ Indice:
         24.14. Project - OMDB and TasteDive
 
 
+    Apandices
+        A.1 Numpy
+        A.2 Pandas
+        A.3 Regex
+
 
 """
